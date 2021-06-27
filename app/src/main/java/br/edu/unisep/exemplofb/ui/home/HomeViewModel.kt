@@ -11,8 +11,8 @@ class HomeViewModel(private val repository: Repository):ViewModel() {
         repository.logout()
     }
 
-    fun getCurrentUser(){
-        repository.getCurrentUser()
+    fun getCurrentUser():String{
+        return repository.getCurrentUser()
     }
 
 

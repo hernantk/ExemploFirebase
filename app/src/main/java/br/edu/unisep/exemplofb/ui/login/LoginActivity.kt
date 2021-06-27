@@ -24,7 +24,6 @@ class LoginActivity() : AppCompatActivity() {
     private val viewModel: LoginViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        checkUserSaved()
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
@@ -60,17 +59,7 @@ class LoginActivity() : AppCompatActivity() {
         finish()
     }
 
-    private fun checkUserSaved(){
-        val prefs = getSharedPreferences("example-firebase-prefs", MODE_PRIVATE)
-        if (prefs.contains("user-id")) {
-            val username = prefs.getString("user-email", "") ?: ""
-            val password = prefs.getString("user-password", "") ?: ""
 
-            viewModel.loginAuth(username,password).addOnSuccessListener(::onLoginSuccess)
-
-        }
-
-    }
 
     companion object {
         fun newIntent(context: Context) = Intent(context, LoginActivity::class.java)

@@ -20,7 +20,7 @@ class Repository(private val fbAuth: FirebaseAuth) {
         fbAuth.signOut()
     }
 
-    fun getCurrentUser(){
-        fbAuth.currentUser?.email
+    fun getCurrentUser() : String{
+        return fbAuth.currentUser?.email.toString()
     }
 }
